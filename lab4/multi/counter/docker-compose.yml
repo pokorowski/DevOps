@@ -1,0 +1,10 @@
+services:
+  redis_server:
+    image: 'redis'
+  
+  backend-app:
+    build: .
+    ports:
+      - "9090:8080"
+    restart: on-failure    
+  
