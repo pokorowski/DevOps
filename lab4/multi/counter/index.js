@@ -1,17 +1,21 @@
+const express = require('express');
+
+const redis = require('redis');
+
 const app = express();
 
-const process = require('process')
+const process = require('process');
 
 const client = redis.createClient({
   host: 'redis-server',
   port: 6379
 });
 
-client.set('counter',0)
+client.set('counter',0);
 
 app.get('/', (req, resp) => {
 	
-  console.log('New request')
+  console.log('New request');
   process.exit(0);
   
   client.get('counter', (err,counter) => {
