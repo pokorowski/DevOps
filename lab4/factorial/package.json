@@ -1,5 +1,5 @@
 {
-  "name": "counter",
+  "name": "factorial",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

@@ -11,22 +11,27 @@ const client = redis.createClient({
   port: 6379
 });
 
-client.set('counter',0);
-
 app.get('/:fparam', (req, resp) => {
   const factValue = req.params.fparam;
   
   console.log("factorial parameter:" + factValue)	
   
-  if(factValue>9) {
-    process.exit(0);
+  if(factValue>9 || factValue<1) {
+    process.exit(1);
   }
+  
+
+  
   client.get(factValue, (err,result) => {   
     if(!result){
-	  result = factorial(factValue);
-	  client.set(factValue,result);
+	  var fact = parseInt(factorial(factValue));
+	  client.set(factValue,fact);
+	  resp.send('(No Cache) factotorial for ' + factValue + " is " + fact);
 	}
-    resp.send('factotorial for ' + factValue + " is " + result);
+	else
+	{
+    resp.send('(Cache) factotorial for ' + factValue + " is " + result);
+    }
   });
 });
 
@@ -36,7 +41,10 @@ function factorial(x)
   {
      return 1;
   }
-     return x * factorial(x-1)
+  else
+  {
+     return x * factorial(x-1);
+  }
 }      	  
 
 app.listen(8080, () => {
