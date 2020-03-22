@@ -19,9 +19,7 @@ app.get('/:fparam', (req, resp) => {
   if(factValue>9 || factValue<1) {
     process.exit(1);
   }
-  
-
-  
+    
   client.get(factValue, (err,result) => {   
     if(!result){
 	  var fact = parseInt(factorial(factValue));
