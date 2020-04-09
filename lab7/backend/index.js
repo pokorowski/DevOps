@@ -40,9 +40,10 @@ app.get('/:number1/:number2', (req, resp) => {
 
     redisClient.get(cache, (err, cachedValue) => {
         if (!cachedValue) {
-          redisClient.set(cache, parseInt(gcd(numberValue1, numberValue2)));
-          resp.send('no cache'  + cache + "\n");
-          pgClient.query('INSERT INTO results(number) VALUES($1)', [cache], (err, res) => {
+          var gcdResult = parseInt(gcd(numberValue1, numberValue2))
+          redisClient.set(cache,gcdResult);
+          resp.send('no cache'  + gcdResult + "\n");
+          pgClient.query('INSERT INTO results(number) VALUES($1)', [gcdResult], (err, res) => {
             if(err){
              console.log(err.stack);
             };
