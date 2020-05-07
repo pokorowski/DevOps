@@ -3,8 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: myapp-replicaset
-  labels:
+  name: myapp-deployment
     app: myapp
     type: frontend
 
