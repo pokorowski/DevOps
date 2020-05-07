@@ -11,3 +11,4 @@ spec:
   containers:
   - name: my-nginx-container
     image: pokorowski/random
+    imagePullPolicy: Never
