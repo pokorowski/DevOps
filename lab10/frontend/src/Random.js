@@ -4,16 +4,18 @@ class Random extends Component {
     constructor(props){
 	  super(props)
         this.state = {
-	      randomR: 0,
+	      randomR: null
         }
 	  };
-    
-    render() {
-	  const rand = Math.random();
-	  this.state.randomR = rand;
-      this.setState({randomR : this.state.randomR})
+	  
+   componentWillMount(){
+      const rand = Math.floor(Math.random() * 10);
+      this.setState({randomR : rand})
       console.log(rand);
-      
+   }
+
+    render() {
+
       return (
         <div>Result: {this.state.randomR} </div>
       );
