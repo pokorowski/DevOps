@@ -5,7 +5,5 @@ RUN yarn install
 COPY . .
 RUN yarn build
 
-CMD ["yarn", "start"]
-
 FROM nginx
 COPY --from=mybuild /opt/app/build /use/share/ngnix/html
