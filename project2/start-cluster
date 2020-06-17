@@ -1,10 +1,15 @@
 #!/bin/sh
 
-kubectl create -f local-storageclass.yml 
+kubectl create -f local-storageclass.yml
+kubectl get storageclass
 kubectl create -f redis-deployment.yml
+kubectl get deployments
 kubectl create -f redis-service-clusterip.yml
+kubectl get services
 kubectl create -f myapp-configMap.yml
+kubectl get configmaps
 kubectl create -f myapp-secret.yml
+kubectl get secrets
 kubectl create -f persistent-volume-definition.yml
 kubectl create -f postgres-pvc.yml
 kubectl create -f postgres-deployment.yml

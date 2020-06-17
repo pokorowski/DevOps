@@ -6,6 +6,7 @@ kubectl delete service myapp-backend-clusterip
 kubectl delete service myapp-frontend-clusterip
 kubectl delete deployments,pods,configMaps,ingresses --all
 kubectl delete pvc postgres-pvc
+kubectl get pv | tail -n+2 | awk '{print $1}' | xargs -I{} kubectl patch pv {} -p '{"metadata":{"finalizers": null}}'
 kubectl delete pv pv-volume1
 kubectl delete sc local-storage
 kubectl delete secret myapp-secret
