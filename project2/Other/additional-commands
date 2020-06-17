@@ -1,4 +1,6 @@
 sudo chmod 666 /var/run/docker.sock
 minikube start --driver=docker
 eval $(minikube docker-env)
+docker build -t realityarchitect/mybackend .
+docker build -t realityarchitect/frontend .
 eval $(minikube docker-env -u)
