@@ -20,6 +20,7 @@ spec:
             containers:
                 - name: myfrontend-container
                   image: realityarchitect/myfrontend
+                  imagePullPolicy: Never
                   stdin: true
 
     replicas: 3

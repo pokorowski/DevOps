@@ -3,4 +3,5 @@ minikube start --driver=docker
 eval $(minikube docker-env)
 docker build -t realityarchitect/mybackend .
 docker build -t realityarchitect/frontend .
+minikube addons enable ingress
 eval $(minikube docker-env -u)

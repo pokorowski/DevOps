@@ -1,5 +1,6 @@
 #!/bin/sh
 
+kubectl get pods -n kube-system
 kubectl create -f local-storageclass.yml
 kubectl get storageclass
 kubectl create -f redis-deployment.yml
@@ -13,9 +14,13 @@ kubectl get secrets
 kubectl create -f persistent-volume-definition.yml
 kubectl create -f postgres-pvc.yml
 kubectl create -f postgres-deployment.yml
+kubectl get deployments
 kubectl create -f postgres-service-clusterip.yml
+kubectl get services
 kubectl create -f postgres-configMap.yml
+kubectl get configmaps
 kubectl create -f ingress-service.yml
+kubectl get ingress ingress-service
 kubectl create -f mybackend-deployment.yml
 kubectl create -f mybackend-service-clusterip.yml
 kubectl create -f myfrontend-deployment.yml

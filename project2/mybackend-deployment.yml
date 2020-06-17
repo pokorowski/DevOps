@@ -20,6 +20,7 @@ spec:
             containers:
                 - name: mybackend-container
                   image: realityarchitect/mybackend
+                  imagePullPolicy: Never
 
                   env:
                     - name: REDIS_HOST
