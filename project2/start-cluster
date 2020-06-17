@@ -25,3 +25,5 @@ kubectl create -f mybackend-deployment.yml
 kubectl create -f mybackend-service-clusterip.yml
 kubectl create -f myfrontend-deployment.yml
 kubectl create -f myfrontend-service-clusterip.yml
+minikube ip
+#app adress https://minikube-ip
